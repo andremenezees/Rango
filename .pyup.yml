@@ -1,1 +1,3 @@
-schedule: every week
+requirements:
+  - Pipfile
+  - Pipefile.lock
