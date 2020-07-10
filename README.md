@@ -18,7 +18,7 @@ Quando um usuário visualiza uma página de categoria , será exibido:
 
 
 
-[![Build Status](https://travis-ci.com/andremenezees/template-basico.svg?branch=master)](https://travis-ci.com/andremenezees/template-basico)
-[![codecov](https://codecov.io/gh/andremenezees/curso-django/branch/master/graph/badge.svg)](https://codecov.io/gh/andremenezees/curso-django)
-[![Updates](https://pyup.io/repos/github/andremenezees/curso-django/shield.svg)](https://pyup.io/repos/github/andremenezees/curso-django/)
-[![Python 3](https://pyup.io/repos/github/andremenezees/curso-django/python-3-shield.svg)](https://pyup.io/repos/github/andremenezees/curso-django/)
+[![Build Status](https://travis-ci.com/andremenezees/Rango.svg?branch=master)](https://travis-ci.com/andremenezees/Rango)
+[![codecov](https://codecov.io/gh/andremenezees/Rango/branch/master/graph/badge.svg)](https://codecov.io/gh/andremenezees/Rango)
+[![Updates](https://pyup.io/repos/github/andremenezees/Rango/shield.svg)](https://pyup.io/repos/github/andremenezees/Rango/)
+[![Python 3](https://pyup.io/repos/github/andremenezees/Rango/python-3-shield.svg)](https://pyup.io/repos/github/andremenezees/Rango/)
