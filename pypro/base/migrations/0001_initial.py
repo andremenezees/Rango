@@ -2,7 +2,7 @@
 
 from django.db import migrations, models
 import django.utils.timezone
-import rango.base.models
+import pypro.base.models
 
 
 class Migration(migrations.Migration):
@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'users',
             },
             managers=[
-                ('objects', rango.base.models.UserManager()),
+                ('objects', pypro.base.models.UserManager()),
             ],
         ),
     ]
