@@ -24,14 +24,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Para encontrar o caminho até a pasta templates e carregar os templates
 
-TEMPLATE_DIR = os.path.join(BASE_DIR, 'pypro/base/templates')
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 # Para upar arquivos estaticos que estão na pasta static dentro de pypro/base
 
-STATIC_DIR = os.path.join(BASE_DIR, 'pypro/base/static')
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
-# Configuraçao para uploaod de arquivos de midia, fotos de usuarios é um exemplo
-MEDIA_DIR = os.path.join(BASE_DIR, 'pypro/base/media')
+# Configuraçao para uploaod de arquivos de media, fotos de usuarios é um exemplo
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 
 # Quick-start development settings - unsuitable for production
@@ -48,10 +48,6 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 AUTH_USER_MODEL = 'base.User'
 
 # Application definition
-
-STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -172,6 +168,8 @@ if AWS_ACCESS_KEY_ID:
     AWS_AUTO_CREATE_BUCKET = False
     AWS_QUERYSTRING_AUTH = True
     AWS_S3_CUSTOM_DOMAIN = None
+    STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+    COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
     COLLECTFAST_ENABLE = True
     AWS_DEFAULT_ACL = 'private'
 
