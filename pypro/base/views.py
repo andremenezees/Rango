@@ -9,7 +9,7 @@ def rango(request):
 
 
 def about(request):
-    return HttpResponse('<html><body>Rango says here is the about page.</body></html>', content_type='text/html')
+    return render(request, 'rango/about.html')
 
 
 def index(request):

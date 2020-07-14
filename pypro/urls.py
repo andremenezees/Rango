@@ -23,7 +23,7 @@ from pypro.base.views import rango, about, index
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', rango),
-    path('rango/about', about),
+    path('rango/about/', about),
     path('rango/', index),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
