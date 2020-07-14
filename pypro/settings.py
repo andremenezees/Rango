@@ -22,7 +22,18 @@ from decouple import config, Csv
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+# Para encontrar o caminho até a pasta templates e carregar os templates
+
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'pypro/base/templates')
+
+# Para upar arquivos estaticos que estão na pasta static dentro de pypro/base
+
+STATIC_DIR = os.path.join(BASE_DIR, 'pypro/base/static')
+
+# Configuraçao para uploaod de arquivos de midia, fotos de usuarios é um exemplo
+MEDIA_DIR = os.path.join(BASE_DIR, 'pypro/base/media')
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -40,6 +51,7 @@ AUTH_USER_MODEL = 'base.User'
 
 STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -75,6 +87,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -135,15 +148,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-# Configuraçao de ambiente de desenvolvimento
+# Configuraçao dos arquivos de imagem estaticos
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [STATIC_DIR, ]
 
-# Configuraçao para uploaod de arquivos
+# Configuração de arquivos de imagem de media
 
+MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 COLLECTFAST_ENABLE = False
 
