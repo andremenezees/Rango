@@ -24,14 +24,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Para encontrar o caminho até a pasta templates e carregar os templates
 
-TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'pypro/templates')
 
 # Para upar arquivos estaticos que estão na pasta static dentro de pypro/base
 
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATIC_DIR = os.path.join(BASE_DIR, 'pypro/static')
 
 # Configuraçao para uploaod de arquivos de media, fotos de usuarios é um exemplo
-MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+MEDIA_DIR = os.path.join(BASE_DIR, 'pypro/media')
 
 
 # Quick-start development settings - unsuitable for production
