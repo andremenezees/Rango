@@ -18,7 +18,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from pypro.base.views import rango, about, index
+from pypro.base.views import rango
+from pypro.rango.views import about, index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
