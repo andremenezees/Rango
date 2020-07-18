@@ -49,6 +49,7 @@ AUTH_USER_MODEL = 'base.User'
 
 # Application definition
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
