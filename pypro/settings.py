@@ -49,8 +49,6 @@ AUTH_USER_MODEL = 'base.User'
 
 # Application definition
 
-STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -151,7 +149,7 @@ USE_TZ = True
 # Configuraçao dos arquivos de imagem estaticos
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [STATIC_DIR, ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Configuração de arquivos de imagem de media
 
