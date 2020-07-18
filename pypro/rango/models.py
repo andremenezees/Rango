@@ -23,6 +23,5 @@ class Pagina(models.Model):
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
 
-
     def __str__(self):
         return self.title

@@ -16,16 +16,16 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.template.defaulttags import url
 from django.urls import path, include, re_path
 
 from pypro.rango import views
+
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   re_path(r'^$', views.index, name='index'),
                   re_path(r'^about/$', views.about, name='about'),
                   re_path(r'^categoria/(?P<category_name_slug>[\w\-]+)/$',
-                      views.show_category, name='show_category'),
+                          views.show_category, name='show_category'),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
