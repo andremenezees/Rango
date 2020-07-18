@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Categorias</title>
+</head>
+
+<body>
+{% include 'rango/navbar.html'%}
+
+<h1>Categorias</h1>
+
+     <div>
+        {% if categorias %}
+    <ul>
+        {% for categoria in categorias %}
+
+            <li>
+            <a href="/categoria/{{ categoria.slug}}">{{ categoria.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <strong>There are no categories present.</strong>
+    {% endif %}
+    </div>
+
+</body>
+</html>

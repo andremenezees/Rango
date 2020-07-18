@@ -31,3 +31,17 @@ def show_category(request, category_name_slug):
         context_dict['paginas'] = None
 
     return render(request, 'rango/category.html', context_dict)
+
+
+def all_categories(request):
+    category_list = Categoria.objects.order_by('-likes')[:100000]
+    context_dict = {'categorias': category_list}
+
+    return render(request, 'rango/categorias.html', context_dict)
+
+
+def all_paginas(request):
+    page_list = Pagina.objects.order_by('-likes')[:100000]
+    context_dict = {'paginas': page_list}
+
+    return render(request, 'rango/paginas.html', context_dict)
