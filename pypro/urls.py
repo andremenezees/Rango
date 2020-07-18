@@ -26,6 +26,8 @@ urlpatterns = [
                   re_path(r'^about/$', views.about, name='about'),
                   re_path(r'^categoria/(?P<category_name_slug>[\w\-]+)/$',
                           views.show_category, name='show_category'),
+                  re_path(r'^categorias/', views.all_categories, name='all_categories'),
+                  re_path(r'^pagina/', views.all_paginas, name='all_paginas')
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

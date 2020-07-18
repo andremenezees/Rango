@@ -108,3 +108,6 @@ venv.bak/
 # postres files for local developemnt
 
 .pgdata
+/.aws/
+pypro/base/template/
+pypro/rango/media/

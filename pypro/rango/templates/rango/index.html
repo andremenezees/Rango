@@ -5,11 +5,15 @@
     <title>Rango</title>
 </head>
 
+
 <body>
+
+{% include 'rango/navbar.html'%}
+
 <h1>Rango says...</h1>
 <div>hey there partner!</div>
 
-    <h3>Most liked Categories</h3>
+    <h3>As 5 categorias com mais like</h3>
     <div>
         {% if categorias %}
     <ul>
@@ -25,7 +29,7 @@
     {% endif %}
     </div>
 
-    <h3>Most liked Pages {{ pagina.title }}</h3>
+    <h3> As 5 páginas com mais views {{ pagina.title }}</h3>
 
     <div>
         {% if paginas %}
@@ -33,7 +37,7 @@
             {% for pagina in paginas %}
 
                 <li>
-                <a href="/paginas/{{ pagina.slug }}">{{ pagina.title }}</a>
+                <a href="{{pagina.url}}">{{ pagina.title }}</a>
                 </li>
             {% endfor %}
     </ul>
