@@ -16,7 +16,6 @@ def about(request):
     return render(request, 'rango/about.html')
 
 
-
 def all_categories(request):
     category_list = Categoria.objects.order_by('-likes')[:100000]
     context_dict = {'categorias': category_list}
@@ -32,7 +31,6 @@ def all_paginas(request):
 
 
 def show_category(request, category_name_slug):
-
     context_dict = {}
     try:
         categoria = Categoria.objects.get(slug=category_name_slug)
@@ -46,4 +44,3 @@ def show_category(request, category_name_slug):
         context_dict['paginas'] = None
 
     return render(request, 'rango/category.html', context_dict)
-
