@@ -26,4 +26,3 @@ class PageForm(forms.ModelForm):
     class Meta:
         model = Pagina
         exclude = ('category',)
-
