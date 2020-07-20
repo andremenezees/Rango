@@ -6,14 +6,13 @@
     <title>Rango</title>
 </head>
 
-
-
 <body>
 
 {% include 'rango/navbar.html'%}
 
 <h1>Rango says...</h1>
-<div>hey there partner!</div>
+<div class="a">hey there partner!</div>
+<p></p>
 
     <h3>As 5 categorias com mais like</h3>
     <div>
@@ -49,6 +48,8 @@
     </div>
 
 <div>
+    <a href="add-categoria/">Adicionar nova categoria</a><br />
+    <p></p>
     <a href="/about/">About</a><br/>
     <img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango"/>
 </div>
