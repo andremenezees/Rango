@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Rango</title>
+    <title>{{categoria.name}}</title>
 </head>
 <body>
 {% include 'rango/navbar.html'%}
@@ -20,6 +20,7 @@
     {% else %}
         The specified category does not exist!
     {% endif %}
+    <a href="/categoria/{{categoria.slug}}/add-pagina/">Adicionar nova página</a><br />
     </div>
 </body>
 </html>
