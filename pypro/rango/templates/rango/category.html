@@ -5,6 +5,9 @@
 </head>
 <body>
 {% include 'rango/navbar.html'%}
+
+<div class="container-fluid">
+
 <div>
     {% if categoria %}
         <h1>{{ categoria.name }}</h1>
@@ -22,5 +25,6 @@
     {% endif %}
     <a href="/categoria/{{categoria.slug}}/add-pagina/">Adicionar nova página</a><br />
     </div>
+</div>
 </body>
 </html>

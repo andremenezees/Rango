@@ -4,27 +4,28 @@
 	        <title>Adicionar Página</title>
 	    </head>
 	    <body>
-		{% include 'rango/navbar.html'%}
-			{% if categoria %}
+			{% include 'rango/navbar.html'%}
+			<div class="container-fluid">
+				{% if categoria %}
 
-	        <h1>Adicionar uma página a categoria {{categoria.name}}</h1>
-			<h3>Parametros a serem digitados (título, URL e views)</h3>
-	        <form id="page_form" method="post" action="/categoria/{{ categoria.slug }}/add-pagina/">
-	            {% csrf_token %}
-	            {% for hidden in form.hidden_fields %}
-	                {{ hidden }}
-	            {% endfor %}
-	            {% for field in form.visible_fields %}
-	                {{ field.errors }}
-	                {{ field.help_text }}
-	                {{ field }}
-	            {% endfor %}
-	            <input type="submit" name="submit" value="Add Pagina" />
-	        </form>
+	        	<h1>Adicionar uma página a categoria {{categoria.name}}</h1>
+				<h3>Parametros a serem digitados (título, URL e views)</h3>
+	        	<form id="page_form" method="post" action="/categoria/{{ categoria.slug }}/add-pagina/">
+	            	{% csrf_token %}
+	            	{% for hidden in form.hidden_fields %}
+	                	{{ hidden }}
+	            	{% endfor %}
+	            	{% for field in form.visible_fields %}
+	                	{{ field.errors }}
+	                	{{ field.help_text }}
+	                	{{ field }}
+	            	{% endfor %}
+	            	<input type="submit" name="submit" value="Add Pagina" />
+	        	</form>
 
-			{% else %}
-				A categoria especificada não existe
-			{% endif%}
-
-	    </body>
+				{% else %}
+					A categoria especificada não existe
+				{% endif%}
+			</div>
+		</body>
 	</html>
