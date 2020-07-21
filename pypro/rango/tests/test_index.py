@@ -1,10 +1,7 @@
 import pytest
 from django.urls import reverse
-from model_mommy import mommy
 
 from pypro.django_assertions import assert_contains
-from pypro.rango.models import Categoria
-
 
 
 @pytest.fixture
