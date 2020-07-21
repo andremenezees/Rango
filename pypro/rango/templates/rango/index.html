@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load rango_template_tags %}
 
 <html>
 <head>
@@ -10,6 +11,7 @@
 {% include 'rango/navbar.html'%}
 
 <div class="container-fluid">
+
 <h1>Rango says...</h1>
 <div>hey there partner!</div>
 <p></p>
@@ -51,6 +53,7 @@
     <a href="{% url 'rango:add_category' %}">Adicionar nova categoria</a>
     <p></p>
     <a href="{% url 'rango:about' %}">About</a>
+    <p></p>
     <img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango"/>
 </div>
 </div>
