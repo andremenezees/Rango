@@ -16,21 +16,11 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include, re_path
-
-from pypro.rango import views
+from django.urls import path, include
 
 urlpatterns = [
                 path('admin/', admin.site.urls),
-                re_path(r'^$', views.index, name='index'),
-                re_path(r'^about/$', views.about, name='about'),
-                re_path(r'^categoria/(?P<category_name_slug>[\w\-]+)/$',
-                        views.show_category, name='show_category'),
-                re_path(r'^categorias/', views.all_categories, name='all_categories'),
-                re_path(r'^pagina/', views.all_paginas, name='all_paginas'),
-                re_path(r'add-categoria/', views.add_category, name='add_category'),
-                re_path(r'^categoria/(?P<category_name_slug>[\w\-]+)/add-pagina/$', views.add_page, name='add_page'),
-
+                path('', include('pypro.rango.urls')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

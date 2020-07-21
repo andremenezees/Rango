@@ -9,8 +9,7 @@
 				{% if categoria %}
 
 	        	<h1>Adicionar uma página a categoria {{categoria.name}}</h1>
-				<h3>Parametros a serem digitados (título, URL e views)</h3>
-	        	<form id="page_form" method="post" action="/categoria/{{ categoria.slug }}/add-pagina/">
+	        	<form id="page_form" method="post" action="{% url 'rango:add_page' categoria.slug %}">
 	            	{% csrf_token %}
 	            	{% for hidden in form.hidden_fields %}
 	                	{{ hidden }}

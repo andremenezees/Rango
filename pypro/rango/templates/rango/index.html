@@ -21,7 +21,7 @@
         {% for categoria in categorias %}
 
             <li>
-            <a href="/categoria/{{ categoria.slug}}">{{ categoria.name }}</a>
+            <a href="{% url 'rango:show_category' categoria.slug %}">{{ categoria.name }}</a>
             </li>
         {% endfor %}
     </ul>
@@ -48,9 +48,9 @@
     </div>
 
 <div>
-    <a href="add-categoria/">Adicionar nova categoria</a><br />
+    <a href="{% url 'rango:add_category' %}">Adicionar nova categoria</a><br />
     <p></p>
-    <a href="/about/">About</a><br/>
+    <a href="{% url 'rango:about' %}">About</a><br/>
     <img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango"/>
 </div>
 </div>
