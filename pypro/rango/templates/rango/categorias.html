@@ -18,13 +18,14 @@
         {% for categoria in categorias %}
 
             <li>
-            <a href="/categoria/{{ categoria.slug}}">{{ categoria.name }}</a>
+            <a href="{% url 'rango:show_category' categoria.slug %}">{{ categoria.name }}</a>
             </li>
         {% endfor %}
     </ul>
     {% else %}
         <strong>There are no categories present.</strong>
     {% endif %}
+     <a href="{% url 'rango:add_category' %}">Adicionar nova categoria</a><br />
     </div>
 </div>
 </body>

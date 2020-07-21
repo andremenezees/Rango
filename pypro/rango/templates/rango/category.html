@@ -23,7 +23,7 @@
     {% else %}
         The specified category does not exist!
     {% endif %}
-    <a href="/categoria/{{categoria.slug}}/add-pagina/">Adicionar nova página</a><br />
+    <a href="{% url 'rango:add_page' categoria.slug %}">Adicionar nova página</a><br />
     </div>
 </div>
 </body>
