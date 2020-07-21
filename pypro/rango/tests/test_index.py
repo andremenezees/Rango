@@ -8,7 +8,7 @@ from pypro.rango.models import Categoria
 
 @pytest.fixture
 def categorias(db):
-    return mommy.make(Categoria, 2)
+    return mommy.make(Categoria, 2, name='barakalol')
 
 
 @pytest.fixture
