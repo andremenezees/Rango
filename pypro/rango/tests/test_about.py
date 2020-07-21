@@ -1,4 +1,3 @@
-import baker
 import pytest
 from django.urls import reverse
 
