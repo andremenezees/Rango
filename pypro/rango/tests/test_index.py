@@ -6,10 +6,6 @@ from pypro.django_assertions import assert_contains
 from pypro.rango.models import Categoria
 
 
-@pytest.fixture
-def categorias(db):
-    return mommy.make(Categoria, 2, name='barakalol')
-
 
 @pytest.fixture
 def resp(client, db):
@@ -31,8 +27,3 @@ def test_index_link(resp):
 
 def test_image_shown(resp):
     assert_contains(resp, '<img src="')
-
-
-def test_nome_das_categorias(resp, categorias: Categoria):
-    for categoria in categorias:
-        assert_contains(resp, categoria.name)
