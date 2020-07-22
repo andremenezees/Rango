@@ -24,14 +24,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Para encontrar o caminho até a pasta templates e carregar os templates
 
-TEMPLATE_DIR = os.path.join(BASE_DIR, 'pypro/templates')
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'pypro/rango/templates')
 
 # Para upar arquivos estaticos que estão na pasta static dentro de pypro/base
 
-STATIC_DIR = os.path.join(BASE_DIR, 'pypro/static')
+STATIC_DIR = os.path.join(BASE_DIR, 'pypro/rango/static')
 
 # Configuraçao para uploaod de arquivos de media, fotos de usuarios é um exemplo
-MEDIA_DIR = os.path.join(BASE_DIR, 'pypro/media')
+MEDIA_DIR = os.path.join(BASE_DIR, 'pypro/rango/media')
 
 
 # Quick-start development settings - unsuitable for production
@@ -49,6 +49,7 @@ AUTH_USER_MODEL = 'base.User'
 
 # Application definition
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -58,6 +59,7 @@ INSTALLED_APPS = [
     'collectfast',
     'django.contrib.staticfiles',
     'pypro.base',
+    'pypro.rango',
 ]
 
 MIDDLEWARE = [
@@ -147,7 +149,7 @@ USE_TZ = True
 # Configuraçao dos arquivos de imagem estaticos
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [STATIC_DIR, ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Configuração de arquivos de imagem de media
 
@@ -177,14 +179,14 @@ if AWS_ACCESS_KEY_ID:
     # ------------------------------------------------------------------------------
 
     STATICFILES_STORAGE = 's3_folder_storage.s3.StaticStorage'
-    STATIC_S3_PATH = "static"
+    STATIC_S3_PATH = "rango/static"
     STATIC_ROOT = f'/{STATIC_S3_PATH}/'
     STATIC_URL = f'//s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/{STATIC_S3_PATH}/'
     ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
     # Uploaded Media Folder
     DEFAULT_FILE_STORAGE = 's3_folder_storage.s3.DefaultStorage'
-    DEFAULT_S3_PATH = "media"
+    DEFAULT_S3_PATH = "rango/media"
     MEDIA_ROOT = f'/{DEFAULT_S3_PATH}/'
     MEDIA_URL = f'//s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/{DEFAULT_S3_PATH}/'
 

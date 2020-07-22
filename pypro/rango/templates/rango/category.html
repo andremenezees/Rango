@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{categoria.name}}</title>
+</head>
+<body>
+{% include 'rango/navbar.html'%}
+
+<div class="container-fluid">
+
+<div>
+    {% if categoria %}
+        <h1>{{ categoria.name }}</h1>
+        {% if paginas %}
+            <ul>
+            {% for pagina in paginas %}
+                <li><a href="{{ pagina.url }}">{{ pagina.title }}</a></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <strong>No pages currently in category.</strong>
+        {% endif %}
+    {% else %}
+        The specified category does not exist!
+    {% endif %}
+    <a href="{% url 'rango:add_page' categoria.slug %}">Adicionar nova página</a><br />
+    </div>
+</div>
+</body>
+</html>

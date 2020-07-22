@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+{% load rango_template_tags %}
+
+<html>
+<head>
+    <title>Rango</title>
+</head>
+<body>
+
+{% include 'rango/navbar.html'%}
+
+<div class="container-fluid">
+
+<h1>Rango says...</h1>
+<div>hey there partner!</div>
+<p></p>
+
+    <h3>As 5 categorias com mais like</h3>
+    <div>
+        {% if categorias %}
+    <ul>
+        {% for categoria in categorias %}
+
+            <li>
+            <a href="{% url 'rango:show_category' categoria.slug %}">{{ categoria.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <strong>There are no categories present.</strong>
+    {% endif %}
+    </div>
+
+    <h3> As 5 páginas com mais views {{ pagina.title }}</h3>
+
+    <div>
+        {% if paginas %}
+    <ul>
+            {% for pagina in paginas %}
+
+                <li>
+                <a href="{{pagina.url}}">{{ pagina.title }}</a>
+                </li>
+            {% endfor %}
+    </ul>
+        {% else %}
+            <strong>There are no pages present.</strong>
+        {% endif %}
+    </div>
+
+<div>
+    <a href="{% url 'rango:add_category' %}">Adicionar nova categoria</a>
+    <p></p>
+    <a href="{% url 'rango:about' %}">About</a>
+    <p></p>
+    <img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango"/>
+</div>
+</div>
+</body>
+</html>
