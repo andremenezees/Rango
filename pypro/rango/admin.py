@@ -1,6 +1,8 @@
 from django.contrib import admin
 
-from pypro.rango.models import Categoria, Pagina
+from pypro.rango.models import Categoria, Pagina, UserProfile
+
+admin.site.register(UserProfile)
 
 
 class PageAdmin(admin.ModelAdmin):
