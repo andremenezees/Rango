@@ -1,4 +1,6 @@
-from pypro.rango.models import Categoria, Pagina
+from django.contrib.auth.models import User
+
+from pypro.rango.models import Categoria, Pagina, UserProfile
 from django import forms
 
 
@@ -25,3 +27,18 @@ class PageForm(forms.ModelForm):
     class Meta:
         model = Pagina
         exclude = ('category',)
+
+
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password')
+
+
+class UserProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = UserProfile
+        fields = ('website', 'picture')

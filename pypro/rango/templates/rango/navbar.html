@@ -18,7 +18,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
-                <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                <a  class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     Módulos
                 </a>
@@ -30,7 +30,27 @@
                 </div>
             </li>
         </ul>
-     </div>
+
+              {% if user.is_authenticated %}
+                <ul class="navbar-right-right">
+                <li class="nav-item dropdown">
+                    <a      class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ user.username}}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-item">
+                            <a class="btn btn-danger" href="{% url 'rango:logout' %}" >Sair</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            {% else %}
+                <li><a href="{% url 'rango:login' %}">Sign In</a></li>
+                <li><a href="{% url 'rango:register' %}">Sign Up</a></li>
+            {% endif %}
+         </div>
 </nav>
 </body>
 </html>

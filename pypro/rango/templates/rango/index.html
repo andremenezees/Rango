@@ -50,9 +50,12 @@
     </div>
 
 <div>
+
+    {% if user.is_authenticated %}
     <a href="{% url 'rango:add_category' %}">Adicionar nova categoria</a>
-    <p></p>
-    <a href="{% url 'rango:add_page' 'no-category' %}">Adicionar nova página sem categoria</a><br />
+    {% else %}
+    <a href="{% url 'rango:login_required' %}">Adicionar nova categoria</a>
+    {%endif %}
     <p></p>
     <a href="{% url 'rango:about' %}">About</a>
     <p></p>

@@ -21,6 +21,7 @@ collectfast = "*"
 django-debug-toolbar = "*"
 sentry-sdk = "*"
 bcrypt = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.8"
