@@ -1,0 +1,36 @@
+Páginas referentes a parte de cookies do livro How to Tango with Django 1.9
+    Página 133-146
+
+Explica como colocar cookies no cliente/servidor para armazenar os dados do cliente no servidor através de um
+ID, que funciona como um token. Somente este ID será armazenado na maquina do cliente, todos os dados do usuario
+serão armazenados no servidor, proprocionando então mais segurança.
+
+Para escolher o tempo que um cookie fica ativo no computador do cliente podemos utilizar:
+
+No settings.py adicione,
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+Isto fara com que o cookie expire apenas quando o browser for fechado.
+
+Para escolher um tempo fixo para o cookies expirar:
+
+No settings.py adicione,
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+SESSION_COOKIE_AGE = (Tempo para expirar em segundos)
+
+Ou seja,
+
+SESSION_COOKIE_AGE = 1209600
+
+Esta configuração faria com que o cookie expire em 14 dias, ou seja 1209600 segundos.
+
+
+É recomendado executar todos os dias,
+
+python manage.py clearsessions
+
+Para limpar os cookies do banco de dados, caso tenha muitos usuarios.
+
