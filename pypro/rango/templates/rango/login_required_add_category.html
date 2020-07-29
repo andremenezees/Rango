@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
     <title>Login</title>
 </head>
 <body>
 
-
-{% include 'rango/login.html' %}
+{% include 'rango/navbar.html'%}
+<p>Para adicionar categorias é necessario fazer o login.</p>
+<p>Para ser redirecionado para a página de login <a href="{% url 'auth_login' %}"> clique aqui.</a></p>
 
 </body>
 </html>
