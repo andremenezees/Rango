@@ -16,11 +16,24 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from registration.backends.simple.views import RegistrationView
+
+
+# Create a new class that redirects the user to the index page,
+# if successful at logging
+class MyRegistrationView(RegistrationView):
+    def get_success_url(self, user):
+        return '/'
+
 
 urlpatterns = [
-                path('admin/', admin.site.urls),
-                path('', include('pypro.rango.urls')),
+                  path('admin/', admin.site.urls),
+                  path('', include('pypro.rango.urls')),
+                  re_path(r'^accounts/', include('registration.backends.simple.urls')),
+                  re_path(r'^accounts/register/$',
+                          MyRegistrationView.as_view(),
+                          name='registration_register'),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

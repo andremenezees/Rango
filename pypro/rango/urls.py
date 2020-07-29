@@ -12,9 +12,5 @@ urlpatterns = [
     path('pagina/', views.all_paginas, name='all_paginas'),
     path('add-categoria/', views.add_category, name='add_category'),
     re_path(r'^categoria/(?P<category_name_slug>[\w\-]+)/add-pagina/$', views.add_page, name='add_page'),
-    re_path('register/', views.register, name='register'),
-    re_path('login/', views.user_login, name='login'),
-    re_path('restricted/', views.restricted, name='restricted'),
-    re_path('logout/', views.user_logout, name='logout'),
     re_path('login-required/', views.login_required, name='login_required'),
 ]

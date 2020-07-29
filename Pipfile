@@ -22,6 +22,7 @@ django-debug-toolbar = "*"
 sentry-sdk = "*"
 bcrypt = "*"
 pillow = "*"
+django-registration-redux = "*"
 
 [requires]
 python_version = "3.8"
