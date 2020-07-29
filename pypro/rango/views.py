@@ -1,12 +1,7 @@
 from datetime import datetime
-
-from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from django.urls import reverse
-
-from pypro.rango.forms import CategoryForm, PageForm, UserProfileForm, UserForm
+from pypro.rango.forms import CategoryForm, PageForm
 from pypro.rango.models import Categoria, Pagina
 
 

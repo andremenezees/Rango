@@ -34,3 +34,9 @@ python manage.py clearsessions
 
 Para limpar os cookies do banco de dados, caso tenha muitos usuarios.
 
+
+Pagina 147: Templates de registros
+
+Todos os templates de registrations foram feitos atraves da biblioteca django-registration-redux e do:
+
+https://github.com/macdhuibh/django-registration-templates
