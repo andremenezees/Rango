@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-
+{% extends 'rango/base.html' %}
 <html>
 <head>
     <title>Categorias</title>
 </head>
 
 <body>
-{% include 'rango/navbar.html'%}
-
+{% block body_block %}
 <div class="container-fluid">
 
 <h1>Categorias</h1>
@@ -32,5 +31,6 @@
     {%endif %}
     </div>
 </div>
+{% endblock %}
 </body>
 </html>

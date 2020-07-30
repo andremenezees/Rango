@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+   <link rel="icon" href="{% static 'images/favicon.ico' %}">
+</head>
+
+<body>
+{% include 'rango/navbar.html'%}
+{% block body_block %}
+{% endblock %}
+</body>
+</html>

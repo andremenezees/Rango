@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+{% extends 'rango/base.html' %}
+
+<body>
+
+{% block body_block %}
 <ul>
  {% if cats %}
     {% for c in cats %}
@@ -7,3 +13,6 @@
     <li><strong>There are no categories present.</strong></li>
  {% endif %}
 </ul>
+{% endblock %}
+</body>
+</html>

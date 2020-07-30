@@ -6,11 +6,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="{% url 'rango:index' %}">Home</a>
+    <div class="collapse navbar-collapse" id="navbar">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -23,6 +23,7 @@
                     Módulos
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'rango:about' %}">About</a>
                     <a class="dropdown-item" href="{% url 'rango:all_categories' %}">Categorias</a>
                     <a class="dropdown-item" href="{% url 'rango:all_paginas' %}">Páginas</a>
                     <a class="dropdown-item" href="{% url 'rango:add_category' %}">Adicionar categoria</a>
@@ -38,6 +39,7 @@
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ user.username}}
                     </a>
+
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{% url 'auth_password_change' %}">Mudar senha</a>
                             <a class="dropdown-item" href="{% url 'auth_logout' %}?next=/" >Sair</a>
@@ -45,12 +47,13 @@
                     </div>
                 </li>
             </ul>
-
             {% else %}
                 <li><a href="{% url 'auth_login' %}">Sign In</a></li>
                 <li><a href="{% url 'registration_register' %}">Sign Up</a></li>
             {% endif %}
-         </div>
+    </div>
+        </div>
+
 </nav>
 </body>
 </html>
