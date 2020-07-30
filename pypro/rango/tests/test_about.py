@@ -15,4 +15,4 @@ def test_status_code(resp):
 
 
 def test_title(resp):
-    assert_contains(resp, '<title>Cat</title>')
+    assert_contains(resp, 'About')
