@@ -2,6 +2,10 @@
 {% load static %}
 <html lang="en">
 <head>
+   <title>
+      {% block title_block %}
+      {% endblock %}
+   </title>
    <link rel="icon" href="{% static 'images/favicon.ico' %}">
 </head>
 

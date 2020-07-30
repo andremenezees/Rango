@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 {% extends 'rango/base.html' %}
 	<html>
-	    <head>
-	        <title>Adicionar Página</title>
-	    </head>
+	    <{% block title_block %}
+		Adicionar página
+		{% endblock %}
 	    <body>
 			{% block body_block %}
 				{% if categoria %}
