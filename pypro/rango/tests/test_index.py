@@ -15,7 +15,7 @@ def test_status_code(resp):
 
 
 def test_title(resp):
-    assert_contains(resp, '<title>Rango</title>')
+    assert_contains(resp, 'Rango')
 
 
 def test_index_link(resp):
