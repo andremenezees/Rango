@@ -32,6 +32,26 @@
             </li>
         </ul>
 
+      <ul class="navbar-right-right">
+          <div class="active"><p style="margin-top: 1px;">
+          <li class="nav-item dropdown">
+              <form class="form-inline" id="user_form"
+        method="post" action="{% url 'rango:search' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <input class="form-control" type="text" size="20"
+            name="query" value="" id="query" />
+        </div>
+
+            <button class="btn btn-primary" type="submit" name="submit"
+            value="Search">Search</button>
+    </form>
+
+          </li>
+          </div>
+
+      </ul>
+
               {% if user.is_authenticated %}
                 <ul class="navbar-right-right">
                 <li class="nav-item dropdown">
@@ -41,6 +61,7 @@
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'rango:profile' user.username %}">Perfil</a>
                             <a class="dropdown-item" href="{% url 'auth_password_change' %}">Mudar senha</a>
                             <a class="dropdown-item" href="{% url 'auth_logout' %}?next=/" >Sair</a>
                             <div class="dropdown-divider"></div>
