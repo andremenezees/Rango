@@ -1,4 +1,4 @@
 [flake8]
 
 max-line-length = 300
-exclude=.venv, script_populate.py, webhose_search
+exclude=.venv, script_populate.py, webhose_search.py
