@@ -177,7 +177,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Configuração de arquivos de imagem de media
 
-MEDIA_ROOT = MEDIA_DIR
+MEDIA_ROOT = os.path.join(MEDIA_DIR, 'media')
 MEDIA_URL = '/media/'
 
 COLLECTFAST_ENABLE = False

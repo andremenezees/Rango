@@ -13,4 +13,8 @@ urlpatterns = [
     path('add-categoria/', views.add_category, name='add_category'),
     re_path(r'^categoria/(?P<category_name_slug>[\w\-]+)/add-pagina/$', views.add_page, name='add_page'),
     re_path('login-required/', views.login_required, name='login_required'),
+    re_path(r'search/$', views.search, name='search'),
+    re_path('register_profile/', views.register_profile, name='register_profile'),
+    re_path(r'^profile/(?P<username>[\w\-]+)/$', views.profile, name='profile'),
+    re_path('profiles/', views.list_profiles, name='list_profiles'),
 ]
