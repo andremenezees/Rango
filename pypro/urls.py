@@ -34,7 +34,7 @@ urlpatterns = [
             re_path(r'^accounts/register/$',
                     MyRegistrationView.as_view(),
                     name='registration_register'),
-              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+        ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     import debug_toolbar
