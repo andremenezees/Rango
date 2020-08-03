@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include, re_path
+from django.urls import path, include, re_path, reverse
 from registration.backends.simple.views import RegistrationView
 
 
@@ -24,7 +24,7 @@ from registration.backends.simple.views import RegistrationView
 # if successful at logging
 class MyRegistrationView(RegistrationView):
     def get_success_url(self, user):
-        return '/'
+        return reverse('register_profile')
 
 
 urlpatterns = [

@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import re_path, path
 
 from pypro.rango import views
@@ -17,4 +19,8 @@ urlpatterns = [
     re_path('register_profile/', views.register_profile, name='register_profile'),
     re_path(r'^profile/(?P<username>[\w\-]+)/$', views.profile, name='profile'),
     re_path('profiles/', views.list_profiles, name='list_profiles'),
-]
+    re_path('goto/', views.track_url, name='goto'),
+    re_path('like_category/', views.like_category, name='like_category'),
+    re_path('suggest/', views.suggest_category, name='suggest_category'),
+    re_path('add/', views.auto_add_page, name='auto_add_page'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
