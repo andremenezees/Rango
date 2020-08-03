@@ -19,7 +19,7 @@ def read_webhose_key():
         with open('search.key', 'r') as f:
             webhose_api_key = f.readline().strip()
 
-    except:
+    except:  # noqa: E722
         raise IOError('search.key file not found')
 
     return webhose_api_key
@@ -67,7 +67,7 @@ def run_query(search_terms, size=10):
             results.append({'title': post['title'],
                             'link': post['url'],
                             'summary': post['text'][:200]})
-    except:
+    except:  # noqa: E722
         print("Error when querying the Webhose API")
 
     # Return the list of results to the calling function.
