@@ -197,7 +197,7 @@ if AWS_ACCESS_KEY_ID:
     STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
     COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
     COLLECTFAST_ENABLE = True
-    AWS_DEFAULT_ACL = 'private'
+    # AWS_DEFAULT_ACL = 'private'
 
     # Static Assets
     # ------------------------------------------------------------------------------
@@ -212,7 +212,8 @@ if AWS_ACCESS_KEY_ID:
     DEFAULT_FILE_STORAGE = 's3_folder_storage.s3.DefaultStorage'
     DEFAULT_S3_PATH = "rango/media"
     MEDIA_ROOT = f'/{DEFAULT_S3_PATH}/'
-    MEDIA_URL = f'//s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/{DEFAULT_S3_PATH}/'
+    MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3-sa-east-1.amazonaws.com/{DEFAULT_S3_PATH}/'
+    # MEDIA_URL = f'//s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/{DEFAULT_S3_PATH}/'
 
     INSTALLED_APPS.append('s3_folder_storage')
     INSTALLED_APPS.append('storages')
