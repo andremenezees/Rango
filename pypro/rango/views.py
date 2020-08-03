@@ -1,5 +1,3 @@
-# noqa: E722
-
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -223,7 +221,7 @@ def track_url(request):
             page.views = page.views + 1
             page.save()
             return redirect(page.url)
-        except:
+        except:  # noqa: E722
             return HttpResponse("Page id {0} not found".format(page_id))
     print("No page_id in get string")
     return redirect(reverse('rango:index'))
