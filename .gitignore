@@ -110,4 +110,4 @@ venv.bak/
 .pgdata
 /.aws/
 pypro/base/template/
-
+pypro/rango/media/
