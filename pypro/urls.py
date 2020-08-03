@@ -28,13 +28,13 @@ class MyRegistrationView(RegistrationView):
 
 
 urlpatterns = [
-            path('admin/', admin.site.urls),
-            path('', include('pypro.rango.urls')),
-            re_path(r'^accounts/', include('registration.backends.simple.urls')),
-            re_path(r'^accounts/register/$',
-                    MyRegistrationView.as_view(),
-                    name='registration_register'),
-        ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('admin/', admin.site.urls),
+                  path('', include('pypro.rango.urls')),
+                  re_path(r'^accounts/', include('registration.backends.simple.urls')),
+                  re_path(r'^accounts/register/$',
+                          MyRegistrationView.as_view(),
+                          name='registration_register'),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     import debug_toolbar
