@@ -1,7 +1,10 @@
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.urls import reverse
+
 from pypro.rango.forms import CategoryForm, PageForm, UserProfileForm
 from pypro.rango.models import Categoria, Pagina, UserProfile
 from pypro.rango.webhose_search import run_query
@@ -62,6 +65,19 @@ def show_category(request, category_name_slug):
         context_dict['categoria'] = None
         context_dict['paginas'] = None
 
+    context_dict['query'] = categoria.name
+
+    result_list = []
+
+    if request.method == 'POST':
+        query = request.POST['query'].strip()
+
+        if query:
+            # Run our search API function to get the results list!
+            result_list = run_query(query)
+            context_dict['query'] = query
+            context_dict['result_list'] = result_list
+
     return render(request, 'rango/category.html', context_dict)
 
 
@@ -84,7 +100,10 @@ def add_category(request):
 
 @login_required()
 def add_page(request, category_name_slug):
-    categoria = Categoria.objects.get(slug=category_name_slug)
+    try:
+        categoria = Categoria.objects.get(slug=category_name_slug)
+    except Categoria.DoesNotExist:
+        categoria = None
 
     form = PageForm()
     if request.method == 'POST':
@@ -95,7 +114,7 @@ def add_page(request, category_name_slug):
                 page.category = categoria
                 page.likes = 0
                 page.save()
-                return show_category(request, category_name_slug)
+                return redirect('rango:show_category', category_name_slug)
         else:
             print(form.errors)
 
@@ -188,6 +207,82 @@ def list_profiles(request):
     # user_list = User.objects.all()
     userprofile_list = UserProfile.objects.all()
     return render(request, 'rango/list_profiles.html', {'userprofile_list': userprofile_list})
+
+
+# Funcao que faz com que aumente o numero de views quando algum usuario clicar em uma das páginas
+def track_url(request):
+    page_id = None
+    if request.method == 'GET':
+        if 'page_id' in request.GET:
+            page_id = request.GET['page_id']
+    if page_id:
+        try:
+            page = Pagina.objects.get(id=page_id)
+            page.views = page.views + 1
+            page.save()
+            return redirect(page.url)
+        except:
+            return HttpResponse("Page id {0} not found".format(page_id))
+    print("No page_id in get string")
+    return redirect(reverse('rango:index'))
+
+
+# Funcao que aumenta o numero de likes ao clicar no botão de like
+@login_required
+def like_category(request):
+    cat_id = None
+    if request.method == 'GET':
+        cat_id = request.GET['category_id']
+    likes = 0
+    if cat_id:
+        cat = Categoria.objects.get(id=int(cat_id))
+        if cat:
+            likes = cat.likes + 1
+            cat.likes = likes
+            cat.save()
+    return HttpResponse(likes)
+
+
+def get_category_list(max_results=0, starts_with=''):
+    cat_list = []
+    if starts_with:
+        cat_list = Categoria.objects.filter(name__istartswith=starts_with)
+
+        if max_results > 0:
+            if len(cat_list) > max_results:
+                cat_list = cat_list[:max_results]
+    return cat_list
+
+
+def suggest_category(request):
+    cat_list = []
+    starts_with = ''
+
+    if request.method == 'GET':
+        starts_with = request.GET['suggestion']
+        cat_list = get_category_list(8, starts_with)
+
+    return render(request, 'rango/cats.html', {'cats': cat_list})
+
+
+@login_required
+def auto_add_page(request):
+    cat_id = None
+    url = None
+    title = None
+    context_dict = {}
+    if request.method == 'GET':
+        cat_id = request.GET['category_id']
+        url = request.GET['url']
+        title = request.GET['title']
+        if cat_id:
+            category = Categoria.objects.get(id=int(cat_id))
+            p = Pagina.objects.get_or_create(category=category, title=title, url=url)
+            pages = Pagina.objects.filter(category=category).order_by('-views')
+            # Adds our results list to the template context under name pages.
+            context_dict['pages'] = pages
+
+    return render(request, 'rango/page_list.html', context_dict)
 
 
 def login_required(request):

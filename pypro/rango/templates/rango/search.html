@@ -14,7 +14,7 @@ Search
     <form class="form-inline" id="user_form"
         method="post" action="{% url 'rango:search' %}">
         {% csrf_token %}
-        <div class="form-group">
+        <div class="input-group">
             <input class="form-control" type="text" size="50"
             name="query" value="{{query}}" id="query" />
         </div>
@@ -35,6 +35,11 @@ Search
                     <a href="{{ result.link }}">{{ result.title }}</a>
                     </h4>
                     <p class="list-group-item-text">{{ result.summary }}</p>
+                {% if user.is_authenticated %}
+						<button data-catid="{{category.id}}" data-title="{{ result.title }}"
+					 data-url="{{ result.link }}"
+						class="rango-add btn btn-info btn-sm" type="button">Add</button>
+					{% endif %}
         </div>
         {% endfor %}
         </div>

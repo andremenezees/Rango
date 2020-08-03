@@ -22,12 +22,12 @@ Rango
     <div class="col-lg-6">
     <h3>As 5 categorias com mais like</h3>
     <p>
+
         {% if categorias %}
-    <ul>
+     <ul class="list-group">
         {% for categoria in categorias %}
-            <li>
-            <a href="{% url 'rango:show_category' categoria.slug %}">{{ categoria.name }}</a>
-            </li>
+            <li class="list-group-item"><a href="{% url 'rango:show_category' categoria.slug %}">{{ categoria.name }}</a>
+                <span class="badge badge-pill badge-primary">{{categoria.likes}}</span></li>
         {% endfor %}
     </ul>
     {% else %}
@@ -44,9 +44,8 @@ Rango
     <ul>
             {% for pagina in paginas %}
 
-                <li>
-                <a href="{{pagina.url}}">{{ pagina.title }}</a>
-                </li>
+                <li class="list-group-item"><a href="{% url 'rango:goto' %}?page_id={{pagina.id}}"\>{{ pagina.title }}</a>
+                    <span class="badge badge-pill badge-primary">{{pagina.views}}</span></li>
             {% endfor %}
     </ul>
         {% else %}

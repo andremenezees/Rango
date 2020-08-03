@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends 'rango/base.html' %}
+<html>
+{% block title_block %}
+Page List
+{% endblock %}
+
+<body>
+{% block body_block %}
+{% if pages %}
+	<ul>
+		{% for pagina in paginas %}
+		<li><a href="{% url 'rango:goto' %}?page_id={{pages.id}}">{{ pages.title }}</a></li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<strong>No pages currently in category.</strong>
+{% endif %}
+{% endblock %}
+</body>
+</html>

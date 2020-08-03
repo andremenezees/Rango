@@ -14,10 +14,20 @@
 <div>
     {% if categoria %}
         <h1>{{ categoria.name }}</h1>
+    <div>
+        <strong id="like_count">{{ categoria.likes }}</strong> people like this category
+        {% if user.is_authenticated %}
+        <button id="likes" data-catid="{{categoria.id}}" class="btn btn-primary btn-sm" type="button">
+			Like
+		</button>
+        {% endif %}
+	</div>
+        <div id="paginas">
         {% if paginas %}
             <ul>
             {% for pagina in paginas %}
-                <li><a href="{{ pagina.url }}">{{ pagina.title }}</a></li>
+                <li><a href="{% url 'rango:goto' %}?page_id={{pagina.id}}">{{ pagina.title }}</a>
+                    <span class="tag tag-pill tag-primary">{{pagina.views}}</span></li>
             {% endfor %}
             </ul>
         {% else %}
@@ -26,12 +36,50 @@
     {% else %}
         The specified category does not exist!
     {% endif %}
+        </div>
     {% if user.is_authenticated %}
     <a href="{% url 'rango:add_page' categoria.slug %}">Adicionar nova página</a>
     {% else %}
     <a href="{% url 'rango:login_required' %}">Adicionar nova página</a>
-    {%endif %}
+    {% endif %}
     </div>
+    <hr>
+
+    {% if user.is_authenticated %}
+    <div>
+		<form class="form-inline" id="user_form"
+				method="post" action="{% url 'rango:show_category' categoria.slug %}">
+			{% csrf_token %}
+			<div class="form-group">
+				<input class="form-control" type="text" size="50"
+					name="query" value="{{ query }}" id="query" />
+			</div>
+			<button class="btn btn-primary" type="submit" name="submit"
+				 value="Search">Search</button>
+			</form>
+			<div>
+			{% if result_list %}
+			<h3>Results</h3>
+			<!-- Display search results in an ordered list -->
+				<div class="list-group">
+				{% for result in result_list %}
+					<div class="list-group-item">
+					<h4 class="list-group-item-heading">
+					<a href="{{ result.link }}">{{ result.title }}</a>
+					</h4>
+					<p class="list-group-item-text">{{ result.summary }}</p>
+                            <button data-catid="{{category.id}}" data-title="{{ result.title }}"
+                                data-url="{{ result.link }}"
+                            class="rango-add btn btn-info btn-sm" type="button">Add</button>
+					</div>
+				{% endfor %}
+				</div>
+			{% endif %}
+			</div>
+
+	</div>
+    {%endif %}
+
 </div>
 {% endblock %}
 </body>

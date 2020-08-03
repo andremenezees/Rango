@@ -5,7 +5,7 @@
 <html>
 
 {% block title_block %}
-Profile
+{{ selecteduser.username }}
 {% endblock %}
 
 <body>
@@ -18,8 +18,9 @@ Profile
     {% else %}
     <img src="http://lorempixel.com/300/300/people/" img width="300" height="300" alt="{{user.username}}"/>
     {% endif %}
-	<br/><br/>
-	<div id="profile_data">
+	<br/>
+<p></p>
+	<div>
 		{% if selecteduser.username == user.username %}
     	<form method="post" action="." enctype="multipart/form-data">
     		{% csrf_token %}
@@ -27,10 +28,10 @@ Profile
     		<input type="submit" value="Update" />
     	</form>
         {% else %}
-		<p><strong>Email:</strong> {{selecteduser.email}}</p>
 		<p><strong>Website:</strong> <a href="{{userprofile.website}}">{{userprofile.website}}</a></p>
 		{% endif %}
 	</div>
+<div id="edit_profile"></div>
 {% endblock %}
 </body>
 </html>
