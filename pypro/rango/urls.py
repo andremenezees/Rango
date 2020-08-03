@@ -23,4 +23,4 @@ urlpatterns = [
     re_path('like_category/', views.like_category, name='like_category'),
     re_path('suggest/', views.suggest_category, name='suggest_category'),
     re_path('add/', views.auto_add_page, name='auto_add_page'),
-]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
