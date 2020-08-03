@@ -3,3 +3,4 @@
 max-line-length = 300
 exclude=.venv, script_populate.py, webhose_search.py
 ignore = E722
+ignore = E126
