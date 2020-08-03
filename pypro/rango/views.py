@@ -272,15 +272,16 @@ def auto_add_page(request):
     title = None
     context_dict = {}
     if request.method == 'GET':
-        cat_id = request.GET['category_id']
-        url = request.GET['url']
-        title = request.GET['title']
+        cat_id = request.GET.get('category_id', False)
+        url = request.GET.get('url', False)
+        title = request.GET.get('title', False)
         if cat_id:
             category = Categoria.objects.get(id=int(cat_id))
-            p = Pagina.objects.get_or_create(category=category, title=title, url=url)
-            pages = Pagina.objects.filter(category=category).order_by('-views')
+            pagina = Pagina.objects.get_or_create(category=category, title=title, url=url)
+            paginas = Pagina.objects.filter(category=category).order_by('-views')[:10000]
             # Adds our results list to the template context under name pages.
-            context_dict['pages'] = pages
+            context_dict['paginas'] = paginas
+            context_dict['pagina'] = pagina
 
     return render(request, 'rango/page_list.html', context_dict)
 

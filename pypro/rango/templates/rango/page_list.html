@@ -7,10 +7,10 @@ Page List
 
 <body>
 {% block body_block %}
-{% if pages %}
+{% if paginas %}
 	<ul>
 		{% for pagina in paginas %}
-		<li><a href="{% url 'rango:goto' %}?page_id={{pages.id}}">{{ pages.title }}</a></li>
+		<li><a href="{% url 'rango:goto' %}?page_id={{pagina.id}}">{{ pagina.title }}</a></li>
 		{% endfor %}
 	</ul>
 {% else %}

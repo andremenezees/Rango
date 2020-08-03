@@ -25,8 +25,10 @@
         var url = $(this).attr("data-url");
         var title = $(this).attr("data-title");
         var me = $(this)
-	    $.get('add/', {category_id: catid, url: url, title: title}, function(data){
+	    $.get('/rango/add/', {category_id: catid, url: url, title: title}, function(data){
 	                   $('#pages').html(data);
 	                   me.hide();
 	               });
 	    });
+
+	    	});
