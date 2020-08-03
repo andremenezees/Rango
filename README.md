@@ -6,9 +6,9 @@ acessar várias páginas da web. Em espanhol, a palavra rango é usada para sign
 qualidade" ou "uma posição em uma hierarquia social".
 
 A página principal do site, deve conter:
-    As 5 páginas mais visualizadas;
-    As cinco categorias mais populares;
-    Alguma forma de os visitante navegarem ou pesquisarem nas categorias;
+    *As 5 páginas mais visualizadas;
+    *As cinco categorias mais populares;
+    *Alguma forma de os visitante navegarem ou pesquisarem nas categorias;
     
 Quando um usuário visualiza uma página de categoria , será exibido:
     O nome da categoria, o número de visitas e o número de curtidas;
