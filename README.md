@@ -15,7 +15,7 @@ qualidade" ou "uma posição em uma hierarquia social".
 - Uma lista de páginas associadas nessa categoria (mostrando o título da página e o link para seu URL);
 - Algumas funcionalidades de pesquisa (por meio da API de pesquisa do Bing) para encontrar outras páginas que podem ser vinculadas a essa categoria.
 
-Link do site: https://andrerango.herokuapp.com/
+Link do site:  https://andrerango.herokuapp.com/
 
 [![Build Status](https://travis-ci.com/andremenezees/Rango.svg?branch=master)](https://travis-ci.com/andremenezees/Rango)
 [![codecov](https://codecov.io/gh/andremenezees/Rango/branch/master/graph/badge.svg)](https://codecov.io/gh/andremenezees/Rango)
