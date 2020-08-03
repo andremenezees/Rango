@@ -2,3 +2,5 @@
 
 max-line-length = 300
 exclude=.venv, script_populate.py, webhose_search.py
+per-file-ignores =
+    ./pypro/rango/views.py:224:9: E722 do not use bare 'except'
