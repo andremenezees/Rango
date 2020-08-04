@@ -14,7 +14,7 @@ Login
 
     <form class="form-signin" role="form" method="post" action=".">
         {% csrf_token %}
-        <div class="active"><p style="margin-top: 50px;">
+        <div class="active"><p style="margin-top: 95px;">
         <div class="container col-md-3">
     <h2 class="form-signin-heading">Please sign in</h2>
     <label for="inputUsername" class="sr-only">Username</label>
@@ -30,7 +30,7 @@ Login
 </form>
  <div class="container">
  <p></p>
-     <div class="active"><p style="margin-top: 90px;">
+     <div class="active"><p style="margin-top: 105px;">
 <p>Forgot password? <a href="{% url 'auth_password_reset' %}">Reset it</a></p>
 <p>
     Not a member?
@@ -39,7 +39,7 @@ Login
 
          </div>
      </div>
-</div>
+
 {% endblock %}
 
 </html>
