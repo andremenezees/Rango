@@ -18,9 +18,7 @@ Categorias
 
             <li class="list-group-item"><a href="{% url 'rango:show_category' categoria.slug %}">{{ categoria.name }}</a>
                 <span id="like_count" class="badge badge-pill badge-primary">{{categoria.likes}} </span> {% if user.is_authenticated %}
-        <button id="likes" data-catid="{{categoria.id}}" class="btn btn-primary btn-sm" type="button">
-			Like
-		</button>
+
         {% endif %}</li>
 
         {% endfor %}
